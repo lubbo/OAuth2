@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.documentation_url = "http://p2.github.io/OAuth2/"
   s.license      = "Apache 2"
   s.author       = { "Pascal Pfiffner" => "phase.of.matter@gmail.com" }
-  s.source       = { :git => "https://github.com/p2/OAuth2.git", :tag => "#{s.version}", :submodules => true }
+  s.source       = { :git => "https://github.com/lubbo/OAuth2.git", :tag => "#{s.version}", :submodules => true }
 
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.10"
