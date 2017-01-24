@@ -20,6 +20,7 @@
 #if os(iOS)
 
 import UIKit
+import WebKit
 #if !NO_MODULE_IMPORT
 import Base
 #endif
@@ -28,7 +29,7 @@ import Base
 /**
 A simple iOS web view controller that allows you to display the login/authorization screen.
 */
-open class OAuth2WebViewController: UIViewController, UIWebViewDelegate {
+open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 	
 	/// Handle to the OAuth2 instance in play, only used for debug lugging at this time.
 	var oauth: OAuth2?
@@ -82,7 +83,7 @@ open class OAuth2WebViewController: UIViewController, UIWebViewDelegate {
 	var cancelButton: UIBarButtonItem?
 	
 	/// Our web view.
-	var webView: UIWebView?
+	var webView: WKWebView?
 	
 	/// An overlay view containing a spinner.
 	var loadingView: UIView?
@@ -112,10 +113,10 @@ open class OAuth2WebViewController: UIViewController, UIWebViewDelegate {
         }
 
 		// create a web view
-		let web = UIWebView()
+		let web = WKWebView()
 		web.translatesAutoresizingMaskIntoConstraints = false
 		web.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal
-		web.delegate = self
+		web.navigationDelegate = self
 		
 		view.addSubview(web)
 		let views = ["web": web]
